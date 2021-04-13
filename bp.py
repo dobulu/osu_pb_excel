@@ -38,7 +38,7 @@ class Osu:
 
     def get_length(self, sec):
         m, s = divmod(sec, 60)
-        length = "%02d分钟%02d秒" % (m, s)
+        length = "%02d分%02d秒" % (m, s)
         return length
 
     def get_acc(self, n300, n100, n50):
@@ -150,9 +150,9 @@ class Osu:
     def excel_fit_width(self, ws):
         for col in ws.columns:
             max_length = 0
-            column = col[0].column_letter # Get the column name
+            column = col[0].column_letter
             for cell in col:
-                try: # Necessary to avoid error on empty cells
+                try: 
                     if len(str(cell.value)) > max_length:
                         max_length = len(cell.value)
                 except:
@@ -175,9 +175,9 @@ class Osu:
         ws.merge_cells('A1:A5')
 
         self.get_user_image()
-        img = Image('./img.jpg') # 调用图像函数
+        img = Image('./img.jpg')
         newSize=(100,100)
-        img.width,img.height = newSize    # 这两个属性分别是对应添加图片的宽高
+        img.width,img.height = newSize
         ws.add_image(img,'A1') 
 
     def excel_pb(self):
