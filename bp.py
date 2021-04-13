@@ -8,7 +8,7 @@ from openpyxl.drawing.image import Image
 class Osu:
     def __init__(self, id):
         self.url = 'https://osu.ppy.sh/api/'
-        self.key = 'b83cdb686b2636a5c4d101f95e3a255e9da3795d'
+        self.key = 'KEY' #Change this to your apiV1 KEY
         self.id = id
 
     def get_mods(self, mods_int):
@@ -192,6 +192,10 @@ class Osu:
         os.remove('./img.jpg')
 
 if __name__ == '__main__':
-    id = input("输入名称或id：")
-    user = Osu(id)
-    user.excel_pb()
+    while True:
+        id = input("输入名称或id：")
+        try:
+            user = Osu(id)
+            user.excel_pb()
+        except IndexError:
+            pass
